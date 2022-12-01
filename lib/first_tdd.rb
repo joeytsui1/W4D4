@@ -51,7 +51,13 @@ class Array
 end
 
 class TowersOfHanoi
+
+    attr_reader :board
     def initialize(num)
-        
+        @board = Array.new(3) {Array.new()}
+
+        num.times do |i|
+            @board[0].unshift(i+1)
+        end
     end
 end

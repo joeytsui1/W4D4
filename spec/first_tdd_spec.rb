@@ -46,19 +46,28 @@ end
     # cannot place a number on a smaller number
     
     
-    describe TowersOfHanoi do 
-        describe "initialize" do 
-            context "with valid arguments" do 
-                it "instantiates a game correctly" do 
-                    game = TowersOfHanoi.new(4)
-                    expect(game.board).to eq ([[4,3,2,1],[],[]])
-                    expect(game.length).to be 3
-                    expect(game[0].length).to be 4
-                    expect(game[1].empty?).to be true
-                    expect(game[2].empty?).to be true
+    describe "TowersOfHanoi" do 
+        let(:game) {TowersOfHanoi.new(4)}
+
+        describe "#initialize" do 
+            context "with valid arguments" do
+                it "accepts a number as an arguement" do
+                    game
+                end
+                it "should set @board to be a 2D array with one row and 3 columns" do
+                    board = game.instance_variable_get(:@board)
+                    expect(board.length).to eq 3
+                    expect(board[0].length).to be 4
+                    expect(board[1].empty?).to be true
+                    expect(board[2].empty?).to be true
+                end
+
+                it  "should make each sub array of @board refer to a distinct array" do
+                    board = game.instance_variable_get(:@board)
+                    expect(board[0]).to_not be (board[1])
                 end
             end
         end
-        
-        
+
+        describe "#get_move"
     end
