@@ -50,7 +50,7 @@ class Array
 
 end
 
-class TowersOfHanoi
+class Board
 
     attr_reader :board
     def initialize(num)
@@ -59,5 +59,13 @@ class TowersOfHanoi
         num.times do |i|
             @board[0].unshift(i+1)
         end
+    end
+end
+
+class User
+    def get_move
+        puts "enter a pair of towers to move the top donut, ex '0 1'"
+        pair = gets.chomp.split.map(&:to_i)
+        return pair
     end
 end

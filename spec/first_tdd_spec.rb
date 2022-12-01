@@ -39,35 +39,48 @@ describe Array do
     end
 
 end
-    
+    # Towers of Hanoi
     # an array of 3 subarrays
     # to start, the first subarray has 3,2,1
     # cannot move from anywhere but the back of a subarray
     # cannot place a number on a smaller number
     
     
-    describe "TowersOfHanoi" do 
-        let(:game) {TowersOfHanoi.new(4)}
+describe Board do 
+    let(:game) {Board.new(4)}
 
-        describe "#initialize" do 
-            context "with valid arguments" do
-                it "accepts a number as an arguement" do
-                    game
-                end
-                it "should set @board to be a 2D array with one row and 3 columns" do
-                    board = game.instance_variable_get(:@board)
-                    expect(board.length).to eq 3
-                    expect(board[0].length).to be 4
-                    expect(board[1].empty?).to be true
-                    expect(board[2].empty?).to be true
-                end
+    describe "#initialize" do 
+        context "with valid arguments" do
+            it "accepts a number as an arguement" do
+                game
+            end
+            it "should set @board to be a 2D array with one row and 3 columns" do
+                board = game.instance_variable_get(:@board)
+                expect(board.length).to eq 3
+                expect(board[0].length).to be 4
+                expect(board[1].empty?).to be true
+                expect(board[2].empty?).to be true
+            end
 
-                it  "should make each sub array of @board refer to a distinct array" do
-                    board = game.instance_variable_get(:@board)
-                    expect(board[0]).to_not be (board[1])
-                end
+            it  "should make each sub array of @board refer to a distinct array" do
+                board = game.instance_variable_get(:@board)
+                expect(board[0]).to_not be (board[1])
             end
         end
-
-        describe "#get_move"
     end
+end
+
+describe User do
+    let (:user) { User.new }
+    describe "#get_move" do 
+        it "should print 'enter a pair of towers to move the top donut, ex '0 1''" do
+            input = double("0 1\n", :chomp=>"0 1")
+            allow(user).to receive(:gets).and_return(input)
+            expect { user.get_move }.to output(/enter a position/).to_stdout
+        end
+
+        it "should return an array containing the users tower selections" do 
+            expect(user.get_move).to eq ([0, 1])
+        end
+    end
+end
