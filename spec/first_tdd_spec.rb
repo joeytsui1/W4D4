@@ -1,4 +1,4 @@
-require_relative "first_tdd.rb"
+require_relative "../lib/first_tdd.rb"
 
 describe Array do
 
@@ -19,6 +19,17 @@ describe Array do
     end
 
     describe "#my_transpose" do 
-        it ""
+        it "should return an array with the same dimentions where every row is filled with corresponding index element of the original" do
+            expect([[1,2,3], [4,5,6], [7,8,9]].my_transpose).to eq ([[1,4,7], [2,5,8], [3,6,9]])
+        end
+
     end
+
+    describe "#stock_picker" do 
+        it "should return an array of two indexes of the highest and lowest ele" do 
+            expect([50, 100, 49, 300].stock_picker).to eq ([2, 3])
+        end
+        it "should return the largest number that comes after the smallest"
+    end
+
 end
