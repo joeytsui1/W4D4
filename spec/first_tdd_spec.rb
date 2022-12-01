@@ -29,7 +29,13 @@ describe Array do
         it "should return an array of two indexes of the highest and lowest ele" do 
             expect([50, 100, 49, 300].stock_picker).to eq ([2, 3])
         end
-        it "should return the largest number that comes after the smallest"
+        it "should return the largest number that comes after the smallest" do
+            expect([300,50,100,49].stock_picker).to eq ([1,2])
+        end
+
+        # it "should return empty array if the smallest number is in the last index" do
+        #     expect([300, 100, 50, 40].stock_picker).to eq ([])
+        # end
     end
 
 end

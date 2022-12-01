@@ -33,5 +33,19 @@ class Array
         new_arr
     end
 
+    def stock_picker
+
+
+        min_ele = self.dup[0..-2].min
+        min_i = self.index(min_ele)
+
+        return [] if min_i == self.length-1
+
+        max_ele = self.dup[min_i..-1].max
+        max_i = self[min_i..-1].index(max_ele) + min_i
+       
+        return [min_i, max_i]
+
+    end
     
 end
