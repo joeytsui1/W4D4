@@ -47,5 +47,11 @@ class Array
         return [min_i, max_i]
 
     end
-    
+
+end
+
+class TowersOfHanoi
+    def initialize(num)
+        
+    end
 end

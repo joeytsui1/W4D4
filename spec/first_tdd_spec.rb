@@ -39,3 +39,26 @@ describe Array do
     end
 
 end
+    
+    # an array of 3 subarrays
+    # to start, the first subarray has 3,2,1
+    # cannot move from anywhere but the back of a subarray
+    # cannot place a number on a smaller number
+    
+    
+    describe TowersOfHanoi do 
+        describe "initialize" do 
+            context "with valid arguments" do 
+                it "instantiates a game correctly" do 
+                    game = TowersOfHanoi.new(4)
+                    expect(game.board).to eq ([[4,3,2,1],[],[]])
+                    expect(game.length).to be 3
+                    expect(game[0].length).to be 4
+                    expect(game[1].empty?).to be true
+                    expect(game[2].empty?).to be true
+                end
+            end
+        end
+        
+        
+    end
